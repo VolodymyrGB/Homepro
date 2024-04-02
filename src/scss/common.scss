@@ -1,0 +1,78 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.block-header {
+  display: grid;
+  @include adaptiveValue("gap", 24, 15);
+ 
+
+  &--center {
+    text-align: center;
+  }
+  &--inline {
+    grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
+    justify-content: space-between;
+   
+    align-items: end;
+    @media (max-width:$tablet){
+      grid-template-columns: auto;
+    }
+  }
+  &__title {
+    color: $darkColor;
+    @include adaptiveValue('font-size', 52, 32);
+    font-weight: 700;
+    line-height: 1.23;
+
+    &--big {
+      @include adaptiveValue('font-size', 64, 34);
+    }
+
+    &--white {
+      color: #fff;
+    }
+  }
+
+  &__text {
+    p {
+      line-height: 1.55;
+    }
+  }
+}
+
+/* 
+<div class="block-header">
+<h2 class="block-header__title">
+
+</h2>
+<div class="block-header__text">
+  <p>
+
+  </p>
+</div>
+</div>
+*/
+
+.done {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: toRem(40);
+  row-gap: toRem(8);
+
+  // .done__item
+
+  &__item {
+    color: $bgColorLight;
+    padding-left: toRem(32);
+    @include adaptiveValue("font-size", 20, 18);
+    
+    line-height: 1.3;
+    background: url('@img/icons/cheks-blue.svg') left toRem(1) no-repeat;
+  }
+}
+
+/* 
+   <ul class="hero__done done">
+        <li class="done__item">Free Quotes</li>
+        <li class="done__item">100%  Commitment-Free </li>
+    </ul>
+*/
